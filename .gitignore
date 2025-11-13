@@ -1,0 +1,78 @@
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+build/
+Build/
+out/
+
+# C++
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.suo
+*.user
+*.sdf
+*.opensdf
+*.vcxproj
+*.vcxproj.filters
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+*.egg
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.code-workspace
+
+# Data files (uncomment if you want to ignore CSVs)
+# *.csv
+# data/*.csv
+
+# Output and logs
+*.log
+*.txt.user
+output/
+results/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
