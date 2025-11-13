@@ -29,8 +29,10 @@ double Optimizer::portfolioReturn(const std::vector<double>& weights,
 std::vector<double> Optimizer::maxSharpePortfolio(const std::vector<double>& mean,
                                                   const std::vector<std::vector<double>>& cov,
                                                   double riskFreeRate,
-                                                  size_t numTrials) {
+                                                  size_t numTrials,
+                                                  size_t portfolioSize) {
   size_t N = mean.size();
+  portfolioSize = std::min(portfolioSize, mean.size());
   std:: vector<double> bestWeights(N);
   double bestSharpe = -std::numeric_limits<double>::infinity();
 
@@ -39,14 +41,20 @@ std::vector<double> Optimizer::maxSharpePortfolio(const std::vector<double>& mea
   std::uniform_real_distribution<> dis(0.0, 1.0);
 
   for (size_t trial = 0; trial < numTrials; trial++) {
-    std::vector<double> w(N);
+    std::vector<double> w(N, 0.0);
+    
+    // select random sample of portfolioSize to use out of given options
+    std::vector<size_t> indices(N);
+    std::iota(indices.begin(), indices.end(), 0);
+    std::shuffle(indices.begin(), indices.end(), gen);
+    
     double sum = 0.0;
-    for (size_t i = 0; i < N; i++) {
-      w[i] = dis(gen);
-      sum += w[i];
+    for (size_t i = 0; i < portfolioSize; i++) {
+      w[indices[i]] = dis(gen);
+      sum += w[indices[i]];
     }
-    for (auto &x : w) {
-      x /= sum;
+    for (size_t i = 0; i < portfolioSize; i++) {
+      w[indices[i]] /= sum;
     }
 
     double ret = portfolioReturn(w, mean);

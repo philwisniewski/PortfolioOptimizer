@@ -9,7 +9,7 @@ int main(int argc, char * argv[]) {
   Portfolio portfolio(data);
 
   const double tradingDays = 252.0;
-  size_t topN = 20;
+  size_t topN = 50;
 
   if (argc > 1) {
     topN = std::stoul(argv[1]);
@@ -58,7 +58,7 @@ int main(int argc, char * argv[]) {
     }
   }
 
-  // Run optimizer on top 20
+  // Run optimizer on top N
   size_t trials = 100000;
   auto weights = Optimizer::maxSharpePortfolio(meanTop, covTop, riskFreeRate, trials);
 

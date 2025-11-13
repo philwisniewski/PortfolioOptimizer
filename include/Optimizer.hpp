@@ -19,7 +19,8 @@ public:
   static std::vector<double> maxSharpePortfolio(const std::vector<double>& mean,
                                                 const std::vector<std::vector<double>>& covMatrix,
                                                 double riskFreeRate,
-                                                size_t numTrials);
+                                                size_t numTrials,
+                                                size_t portfolioSize = 20);
 };
 
 #endif
