@@ -1,0 +1,1 @@
+python backtest_daily.py --file updated_res.txt --start 2025-10-07 --risk-free 0.02 --benchmark spy --end 2025-11-11
