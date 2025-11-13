@@ -2,7 +2,7 @@
 
 Portfolio optimizer with a simple backtest primarily based on Monte Carlo simulations to maximize Sharpe ratio.
 
-### To run:
+### To setup environment:
 
 ```
 python -m venv venv
